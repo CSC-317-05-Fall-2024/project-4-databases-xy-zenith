@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+
+    <head>
+        <title>
+            Hong Kong Travel Guide - Restaurants
+        </title>
+
+        <link rel = "icon" type = "image/svg" href = "./images/icon.svg"/>
+        <link rel = "stylesheet" type = "text/css" href = "styles.css"/>
+
+        <!-- javascript -->
+        <script defer type = "text/javascript" src = "./scripts/header.js"></script>
+        <script defer type = "text/javascript" src = "./scripts/restaurantCards.js"></script>
+    </head>
+
+    <body>
+        <header></header>
+
+        <nav></nav>
+
+        <!-- restaurant list -->
+        <div class = "restaurantList">
+            <!-- loop to display restaurants -->
+            <% for(let i = 0; i < restaurants.length; i++) { %>
+            <div class = "restaurant">
+                <img class = "restaurantImg" src = "<%= restaurants[i].photo %>"/>
+                <div class = "restaurantInfo">
+                    <span class = "restaurantName">
+                        <%= restaurants[i].name %>
+                    </span>
+                    <br><br>
+                    <span class = "restaurantAddress">
+                        <%= restaurants[i].address %>
+                    </span>
+                    <br><br>
+                    <span class = "restaurantTel">
+                        <%= restaurants[i].phone %>
+                    </span>
+                </div>
+                <!-- delete button -->
+                <div class = "delete">
+                    <!-- clickable appearance-->
+                    <a href = "javascript: void(0)" class = "deleteButton" id = "deleteRestaurant-<%= restaurants[i].id %>">
+                        Delete
+                    </a>
+                </div>
+            </div>
+            <% } %>
+        </div>
+
+        <footer></footer>
+    </body>
+
+</html>

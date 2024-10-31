@@ -1,0 +1,210 @@
+body
+{
+    margin: 0;
+    background-color: antiquewhite;
+}
+
+.index
+{
+    margin: 0;
+    padding: 0;
+    height: 30vh;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.locationImg
+{
+    height: 100%;
+    width: 100%;
+}
+
+.locationText
+{
+    font-family: "Helvetica";
+    font-size: 50pt;
+    /* text in image */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.navbar
+{
+    height: 30px;
+    background-color: darkcyan;
+    font-family: "Trebuchet MS";
+    font-size: 15pt;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+    /* hyperlink in white color */
+    a:link
+    {
+        color: white;
+    }
+
+    a:visited
+    {
+        color: white;
+    }
+}
+
+.introduction
+{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.introImg
+{
+    padding-bottom: 10px;
+    width: 50%;
+}
+
+.introText
+{
+    width: 60%;
+    font-family: "Verdana";
+    font-size: 12pt;
+}
+
+.attraction
+{
+    margin: 80px 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.attractionImg
+{
+    height: 300px;
+    width: 400px;
+    padding-right: 50px;
+}
+
+.attractionTitle
+{
+    font-family: "Helvetica";
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+.attractionDes
+{
+    font-family: "Verdana";
+    font-size: 12pt;
+}
+
+.restaurantList
+{
+    margin: 80px 150px;
+    /* occupy page to make footer to bottom when no restaurant display */
+    min-height: calc(70vh - (15px + 30px + 80px * 2));
+    display: grid;
+    column-gap: 20px;
+    row-gap: 50px;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+
+.restaurant
+{
+    height: 400px;
+    width: 375px;
+    background-color: lightgoldenrodyellow;
+}
+
+.restaurantImg
+{
+    height: 256px;
+    width: 100%;
+}
+
+.restaurantInfo
+{
+    /* occupy card to make delete at bottom*/
+    height: calc(400px - (256px + 15px + 10px * 2 + 5px));
+    padding: 10px 0px;
+    font-family: "Verdana";
+    font-size: 12pt;
+    text-align: center;
+}
+
+.restaurantName
+{
+    font-weight: bold;
+}
+
+.delete
+{
+    height: 15px;
+    font-size: 8pt;
+    text-align: right;
+    padding-right: 5px;
+    padding-bottom: 5px;
+
+    /* appearance not like hyperlink */
+    a:link
+    {
+        color: #000;
+        text-decoration: none;
+    }
+    /* change color when click */
+    a:active
+    {
+        color: red;
+    }
+}
+
+.newRestaurant
+{
+    margin: 20px;
+    /* occupy page to make footer at bottom */
+    min-height: calc(70vh - (30px + 15px + 20px * 2));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.restaurantFormTitle
+{
+    font-family: "Helvetica";
+    font-size: 25pt;
+    font-weight: bold;
+}
+
+.restaurantForm
+{
+    height: 100%;
+    width: 100%;
+    font-family: "Verdana";
+    font-size: 12pt;
+}
+
+/* all input box exclude submit button */
+input:not([type = "submit"])
+{
+    width: 25%;
+}
+
+.contact
+{
+    height: 15px;
+    background-color: darkcyan;
+    color: white;
+    font-family: "Helvetica";
+    font-size: 10pt;
+    text-align: right;
+    padding-right: 5px;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+
+    <head>
+        <title>
+            Hong Kong Travel Guide - New Restaurant Form
+        </title>
+
+        <link rel = "icon" type = "image/svg" href = "images/icon.svg"/>
+        <link rel = "stylesheet" type = "text/css" href = "styles.css"/>
+
+        <!-- javascript -->
+        <script defer type = "text/javascript" src = "./scripts/header.js"></script>
+        <script defer type = "text/javascript" src = "./scripts/restaurantSubmit.js"></script>
+    </head>
+
+    <body>
+        <header></header>
+
+        <nav></nav>
+
+        <!-- new restaurant form -->
+        <div class = "newRestaurant">
+            <div class = "restaurantFormTitle">
+                New Restaurant Form
+            </div>
+            <br>
+
+            <form class = "restaurantForm">
+                <label for = "newRestaurantName">Restaurant Name:</label>
+                <br>
+                <input required type = "text" id = "newRestaurantName" name = "newRestaurantName"/>
+                <br><br>
+                <label for = "newRestaurantTel">Phone Number:</label>
+                <br>
+                <input required type = "text" id = "newRestaurantTel" name = "newRestaurantTel"/>
+                <br><br>
+                <label for = "newRestaurantAddress">Address:</label>
+                <br>
+                <input required type = "text" id = "newRestaurantAddress" name = "newRestaurantAddress"/>
+                <br><br>
+                <label for = "newRestaurantPhoto">Photo URL:</label>
+                <br>
+                <input type = "url" id = "newRestaurantPhoto" name = "newRestaurantPhoto"/>
+                <br><br>
+                <input type = "submit" value = "Submit"/>
+            </form>
+        </div>
+
+        <footer></footer>
+    </body>
+
+</html>
