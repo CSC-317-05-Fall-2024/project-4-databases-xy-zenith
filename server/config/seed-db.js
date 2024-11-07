@@ -1,9 +1,11 @@
-/* Initialize the data in the DB */
-import { pool } from './database.js';
+import { pool } from './database.js'; //initialize data in db
 
-const dropTables = async () => {
-    try {
+const dropTables = async () =>
+{
+    try
+    {
         const dropTablesQuery = `
+            DROP TABLE IF EXISTS reviews;
             DROP TABLE IF EXISTS restaurants;
         `;
         await pool.query(dropTablesQuery);
@@ -20,7 +22,15 @@ const createTables = async () => {
             name TEXT NOT NULL,
             phone TEXT NOT NULL,
             address TEXT NOT NULL,
-            photo TEXT);`;
+            photo TEXT);
+            
+            CREATE TABLE IF NOT EXISTS reviews (
+            id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+            rating INT NOT NULL
+            content TEXT
+            restaurant_id INT
+            FOREIGN KEY (restaurant_id) REFERENCES restaurants(id) ON DELETE CASCADE);
+        `;
         await pool.query(createTablesQuery);
     } catch (error) {
         console.log(error)
@@ -31,8 +41,9 @@ const insertData = async () => {
     try {
         const insertDataQuery = `
             INSERT INTO restaurants (name, phone, address, photo)
-            VALUES ('Ladies Street Sik Fan Co.', '2685 1618', 'Shop B, 1/F, Witty Commercial Building, 1A-1L Tung Choi Street, Mong Kok', '/images/ladiesStCo.jpg'),
-            ('Kam's Roast Goose', '5408 7740', 'G/F, Po Wah Commercial Centre, 226 Hennessy Road, Wan Chai', '/images/kamRoast.jpg'),
+            VALUES
+            ('Ladies Street Sik Fan Co.', '2685 1618', 'Shop B, 1/F, Witty Commercial Building, 1A-1L Tung Choi Street, Mong Kok', '/images/ladiesStCo.jpg'),
+            ('Kam''s Roast Goose', '5408 7740', 'G/F, Po Wah Commercial Centre, 226 Hennessy Road, Wan Chai', '/images/kamRoast.jpg'),
             ('Luk On Kui', '2156 9328', '2-3/F, 40-50 Des Voeux Road West, Sheung Wan', '/images/lukOnKui.jpg'),
             ('Hing Kee Claypot Rice Restaurant', '2384 3647', 'G/F, 15-19 Temple Street, Yau Ma Tei', '/images/hingKee.jpg'),
             ('Red Tea Café', '6513 3838', '594-596 Nathan Road, Mong Kok', '/images/redTea.jpg'),

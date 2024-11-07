@@ -3,12 +3,12 @@ import { getRestaurants, getRestaurant, createRestaurant, deleteRestaurant } fro
 
 const router = express.Router();
 
-router.get("/restaurants/:id", (req, res) => //get
+router.get("/restaurants/:id", async(req, res) => //get
 {
     const id = parseInt(req.params.id);
     try
     {
-        const restaurant = getRestaurant(id);
+        const restaurant = await getRestaurant(id);
         res.status(200).json(restaurant);
     }
     catch(error)
@@ -17,12 +17,12 @@ router.get("/restaurants/:id", (req, res) => //get
     }
 });
 
-router.post("/restaurants", (req, res) => //post
+router.post("/restaurants", async(req, res) => //post
 {
     const restaurantData = req.body;
     try
     {
-        const restaurant = createRestaurant(restaurantData);
+        const restaurant = await createRestaurant(restaurantData);
         res.status(200).json(restaurant);
     }
     catch(error)
@@ -32,12 +32,12 @@ router.post("/restaurants", (req, res) => //post
     }
 });
 
-router.delete("/restaurants/:id", (req, res) => //delete
+router.delete("/restaurants/:id", async(req, res) => //delete
 {
     const id = parseInt(req.params.id);
     try
     {
-        const restaurant = deleteRestaurant(id);
+        const restaurant = await deleteRestaurant(id);
         res.status(200).json(restaurant);
     }
     catch(error)

@@ -28,16 +28,16 @@ app.get("/attractions", (req, res) => //attractions page
     res.sendFile(path.join(__dirname, "public", "attractions.html"));
 });
 
-app.get("/restaurants", (req, res) => //restaurants page
+app.get("/restaurants", async(req, res) => //restaurants page
 {
-    const restaurants = getRestaurants();
+    const restaurants = await getRestaurants();
     res.render("restaurants", { restaurants });
 });
 
-app.get("/restaurants/:id", (req, res) => //restaurant details page
+app.get("/restaurants/:id", async(req, res) => //restaurant details page
 {
     const id = parseInt(req.params.id);
-    const restaurant = getRestaurant(id);
+    const restaurant = await getRestaurant(id);
     res.render("restaurant-details", { restaurant })
 });
 
