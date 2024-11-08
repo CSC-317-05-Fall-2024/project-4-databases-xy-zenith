@@ -32,17 +32,19 @@
                 <%= restaurant.phone %>
             </h2>
         </div>
+        <!-- display reviews -->
         <div>
             <h2>
                 Reviews
             </h2>
-            <% for(let review in reviews) { %>
+            <% for(let review of reviews) { %>
             <div>
                 Rating: <%= review.rating %>
             </div>
             <div>
                 <%= review.content %>
             </div>
+            <br><br>
             <% } %>
         </div>
     </div>

@@ -38,7 +38,7 @@ app.get("/restaurants/:id", async(req, res) => //restaurant details page
 {
     const id = parseInt(req.params.id);
     const restaurant = await getRestaurant(id);
-    const reviews = await getReviewsForRestaurant(id);
+    const reviews = await getReviewsForRestaurant(id); //include reviews
     res.render("restaurant-details", { restaurant, reviews })
 });
 

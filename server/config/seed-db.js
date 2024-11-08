@@ -29,9 +29,9 @@ const createTables = async () => { //create table
             
             CREATE TABLE IF NOT EXISTS reviews (
             id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-            rating INT NOT NULL
-            content TEXT
-            restaurant_id INT
+            rating INT NOT NULL,
+            content TEXT,
+            restaurant_id INT NOT NULL,
             FOREIGN KEY (restaurant_id) REFERENCES restaurants(id) ON DELETE CASCADE);
         `;
         await pool.query(createTablesQuery);
@@ -58,15 +58,15 @@ const insertData = async() => //insert into
 
             INSERT INTO reviews (rating, content, restaurant_id)
             VALUES
-            (4, 'The old fashioned decoration is good for taking photos.', 0),
-            (5, 'Food was tasty, I enjoy the dining experience.', 0),
-            (3, 'The only good thing here is the roast goose.', 1),
-            (5, 'Delicious traditional food!', 2),
-            (4, 'Great and interesting food.', 3),
-            (3, 'Food was great but the service is bad.', 3),
-            (2, 'The staff is rude.', 3),
-            (4, 'Cheap and tasty food.', 4),
-            (4, 'The wantun noodles is good!', 5);
+            (4, 'The old fashioned decoration is good for taking photos.', 1),
+            (5, 'Food was tasty, I enjoy the dining experience.', 1),
+            (3, 'The only good thing here is the roast goose.', 2),
+            (5, 'Delicious traditional food!', 3),
+            (4, 'Great and interesting food.', 4),
+            (3, 'Food was great but the service is bad.', 4),
+            (2, 'The staff is rude.', 4),
+            (4, 'Cheap and tasty food.', 5),
+            (4, 'The wantun noodles is good!', 6);
         `;
         await pool.query(insertDataQuery);
     }

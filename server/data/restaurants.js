@@ -77,6 +77,7 @@ const getReviewsForRestaurant = async(id) => //get reviews for restaurant by id
             FROM reviews
             WHERE restaurant_id = $1;
         `, [id]);
+        return results.rows;
     }
     catch(error)
     {
