@@ -2,7 +2,7 @@ import express from "express";
 import path from "path";
 import { backendRouter } from "./routes/api.js";
 import { fileURLToPath } from "url";
-import { getRestaurants, getRestaurant, createRestaurant, deleteRestaurant } from "./data/restaurants.js"; //import restaurant data
+import { getRestaurants, getRestaurant, getReviewsForRestaurant } from "./data/restaurants.js"; //import restaurant data
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -38,7 +38,8 @@ app.get("/restaurants/:id", async(req, res) => //restaurant details page
 {
     const id = parseInt(req.params.id);
     const restaurant = await getRestaurant(id);
-    res.render("restaurant-details", { restaurant })
+    const reviews = await getReviewsForRestaurant(id);
+    res.render("restaurant-details", { restaurant, reviews })
 });
 
 app.get("/new-restaurant-form", (req, res) => //new restaurant page

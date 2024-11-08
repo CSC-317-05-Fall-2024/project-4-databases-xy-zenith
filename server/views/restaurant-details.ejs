@@ -22,9 +22,28 @@
     <div class = "restaurant-details">
         <img class = "restaurant-details-img" src = "<%= restaurant.photo %>">
         <div>
-            <h1><%= restaurant.name %></h1>
-            <h2><%= restaurant.address %></h2>
-            <h2><%= restaurant.phone %></h2>
+            <h1>
+                <%= restaurant.name %>
+            </h1>
+            <h2>
+                <%= restaurant.address %>
+            </h2>
+            <h2>
+                <%= restaurant.phone %>
+            </h2>
+        </div>
+        <div>
+            <h2>
+                Reviews
+            </h2>
+            <% for(let review in reviews) { %>
+            <div>
+                Rating: <%= review.rating %>
+            </div>
+            <div>
+                <%= review.content %>
+            </div>
+            <% } %>
         </div>
     </div>
 

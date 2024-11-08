@@ -12,7 +12,7 @@ const getRestaurants = async() => //get restaurants
     }
     catch(error)
     {
-        console.error(error.message);
+        console.error(error);
     }
 };
 
@@ -29,7 +29,7 @@ const getRestaurant = async(id) => //get single restaurant by id
     }
     catch(error)
     {
-        console.error(error.message);
+        console.error(error);
     }
 };
 
@@ -48,7 +48,7 @@ const createRestaurant = async(newRestaurant) => //create restaurant
     }
     catch(error)
     {
-        console.error(error.message);
+        console.error(error);
     }
 };
 
@@ -64,8 +64,24 @@ const deleteRestaurant = async(id) => //delete restaurant by id
     }
     catch(error)
     {
-        console.error(error.message);
+        console.error(error);
     }
 };
 
-export { getRestaurants, getRestaurant, createRestaurant, deleteRestaurant };
+const getReviewsForRestaurant = async(id) => //get reviews for restaurant by id
+{
+    try
+    {
+        const results = await pool.query(`
+            SELECT *
+            FROM reviews
+            WHERE restaurant_id = $1;
+        `, [id]);
+    }
+    catch(error)
+    {
+        console.error(error);
+    }
+}
+
+export { getRestaurants, getRestaurant, createRestaurant, deleteRestaurant, getReviewsForRestaurant };
